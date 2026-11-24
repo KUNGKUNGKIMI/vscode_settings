@@ -1,0 +1,155 @@
+{
+    "C_Cpp.clang_format_sortIncludes": true,
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "terminal.integrated.initialHint": false,
+    "chat.mcp.gallery.enabled": true,
+    "vs-kubernetes": {
+        "vscode-kubernetes.helm-path-linux": "/home/hx/.local/state/vs-kubernetes/tools/helm/linux-amd64/helm",
+        "vscode-kubernetes.kubectl-path-linux": "/home/hx/.local/state/vs-kubernetes/tools/kubectl/kubectl",
+        "vscode-kubernetes.minikube-path-linux": "/home/hx/.local/state/vs-kubernetes/tools/minikube/linux-amd64/minikube"
+    },
+    "cmake.showNotAllDocumentsSavedQuestion": false,
+    "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
+    "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.dockercompose",
+    "cmake.showConfigureWithDebuggerNotification": false,
+    "gitlens.advanced.messages": {
+        "suppressCommitNotFoundWarning": true
+    },
+    // 1. 开启相对行号，配合 "数字 + j/k" 瞬间精准跳转
+    "editor.lineNumbers": "relative",
+    // 2. 解决长按 j/k 移动卡顿，将 Vim 插件放入独立进程运行
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+    // 3. 将空格键设为 Leader 键，方便触发自定义组合键
+    "vim.leader": "<space>",
+    // 4. 插入模式下连按 jj 退出到普通模式（比按 Esc 快得多）
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    // 5. 将 C++ 常用的 LSP 跳转与工作区控制绑定到 Vim 习惯键位
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "g",
+                "d"
+            ],
+            "commands": [
+                "editor.action.revealDefinition"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "r"
+            ],
+            "commands": [
+                "editor.action.goToReferences"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "n"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+        // C++ 头文件/源文件一键切换
+        {
+            "before": [
+                "g",
+                "h"
+            ],
+            "commands": [
+                "C_Cpp.SwitchHeaderSource"
+            ]
+        },
+        // --- 全键盘窗口与文件控制 ---
+        // 左右分屏 / 上下分屏
+        {
+            "before": [
+                "<leader>",
+                "v"
+            ],
+            "commands": [
+                "workbench.action.splitEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "s"
+            ],
+            "commands": [
+                "workbench.action.splitEditorDown"
+            ]
+        },
+        // 关闭当前分屏 / 仅保留当前分屏
+        {
+            "before": [
+                "<leader>",
+                "q"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "o"
+            ],
+            "commands": [
+                "workbench.action.closeOtherEditors"
+            ]
+        },
+        // 打开并直接聚焦到左侧文件树（可用 j/k 上下移动）
+        {
+            "before": [
+                "<leader>",
+                "e"
+            ],
+            "commands": [
+                "workbench.view.explorer"
+            ]
+        },
+        // 快速模糊搜文件
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        // 呼出/隐藏底部终端
+        {
+            "before": [
+                "<leader>",
+                "t"
+            ],
+            "commands": [
+                "workbench.action.terminal.toggleTerminal"
+            ]
+        }
+    ],
+    // 6. 把复制、粘贴、全选、查找还给 VSCode 原生操作，避免习惯冲突
+    "vim.handleKeys": {
+        "<C-c>": false,
+        "<C-v>": false,
+        "<C-a>": false,
+        "<C-f>": false
+    }
+}
